@@ -4,8 +4,8 @@ const Coordinate = require('../../lib/coordinate')
 
 const ARBITARY_MESSAGE = 'Hello, world'
 
-Given('{word} is at {int}, {int}', function (name, x, y) {
-  this.shouty.setLocation(name, new Coordinate(x, y))
+Given('{word} is at {coordinate}', function (name, coordinate) {
+ this.shouty.setLocation(name, coordinate)
 })
 
 Given('people are located at', function (dataTable) {
