@@ -24,6 +24,13 @@ Feature: Hear Shout
     Then Lucy should not hear Oscar
     But Lucy should hear Sean
 
+  Scenario: Multiple shouts from one person
+    Given Lucy is at 0, 0
+    And Sean is at 0, 500
+    When Sean shouts
+    And Sean shouts
+    Then Lucy should hear 2 shouts from Sean
+
   Rule: Shouters should not hear their own shouts
     Scenario: Shouter does not hear himself
       When Lucy shouts
