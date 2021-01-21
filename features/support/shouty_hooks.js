@@ -1,17 +1,17 @@
 const { Before, After } = require('@cucumber/cucumber')
 
-Before(() => {
+Before({ tags: "@wip"}, () => {
   console.log("before meow 1")
 })
 
-After(() => {
+After({ tags: "@wip"}, () => {
   console.log("after meow 1")
 })
 
-Before(() => {
+Before({ tags: "@done"}, () => {
   console.log("before meow 2")
 })
 
-After(() => {
+After({ tags: "@done"}, () => {
   console.log("after meow 2")
 })

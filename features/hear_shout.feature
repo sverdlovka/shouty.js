@@ -5,6 +5,7 @@ Feature: Hear Shout
   Background:
     Given Lucy is at 0, 0
 
+  @done
   Scenario Outline: only hear in-range shouts
     And Sean is at <Seans-location>
     When Sean shouts
@@ -15,6 +16,7 @@ Feature: Hear Shout
       | 0, 900         | Sean            |
       | 800, 800       | nothing         |
 
+  @done @wip
   Scenario: Multiple shouters
     Given people are located at
       | name         | x       | y   |
