@@ -6,16 +6,12 @@ const Coordinate = require('../../lib/coordinate')
 const ARBITARY_MESSAGE = 'Hello, world'
 let shouty = new Shouty()
 
-Given('Lucy is at {int}, {int}', function (x, y) {
-  shouty.setLocation('Lucy', new Coordinate(x, y))
+Given('{word} is at {int}, {int}', function (name, x, y) {
+  shouty.setLocation(name, new Coordinate(x, y))
 })
 
-Given('Sean is at {int}, {int}', function (x, y) {
-  shouty.setLocation('Sean', new Coordinate(x, y))
-})
-
-When('Sean shouts', function () {
-  shouty.shout('Sean', ARBITARY_MESSAGE)
+When('{word} shouts', function (name) {
+  shouty.shout(name, ARBITARY_MESSAGE)
 })
 
 Then('Lucy should hear Sean', function () {
@@ -24,4 +20,9 @@ Then('Lucy should hear Sean', function () {
 
 Then('Lucy should hear nothing', function () {
   assert.strictEqual(shouty.getShoutsHeardBy('Lucy').size, 0)
+})
+
+Then('{word} should not hear {word}', function (listener, shouter) {
+  const shouters = shouty.getShoutsHeardBy(listener).keys();
+  assert.strictEqual(Array.from(shouters).includes(shouter), false);
 })
