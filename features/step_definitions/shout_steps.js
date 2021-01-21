@@ -26,3 +26,10 @@ Then('{word} should not hear {word}', function (listener, shouter) {
   const shouters = shouty.getShoutsHeardBy(listener).keys();
   assert.strictEqual(Array.from(shouters).includes(shouter), false);
 })
+
+Given('people are located at', function (dataTable) {
+  dataTable.hashes().forEach(row => {
+    console.log(row)
+    shouty.setLocation(row.name, new Coordinate(row.x, row.y))
+  })
+})
