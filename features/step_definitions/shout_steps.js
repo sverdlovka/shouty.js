@@ -1,8 +1,16 @@
 const assert = require('assert')
-const { Given, When, Then, Before } = require('@cucumber/cucumber')
+const { Given, When, Then, Before, After } = require('@cucumber/cucumber')
 const Coordinate = require('../../lib/coordinate')
 
 const ARBITARY_MESSAGE = 'Hello, world'
+
+Before(() => {
+  console.log("before meow 3")
+})
+
+After(() => {
+  console.log("after meow 3")
+})
 
 When('{word} shouts', function (name) {
   this.shouty.shout(name, ARBITARY_MESSAGE)
