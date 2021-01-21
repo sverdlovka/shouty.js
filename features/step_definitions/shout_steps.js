@@ -33,3 +33,7 @@ Given('people are located at', function (dataTable) {
     shouty.setLocation(row.name, new Coordinate(row.x, row.y))
   })
 })
+
+Then('Lucy should hear {int} shouts from Sean', function (shouts) {
+  assert.strictEqual(shouty.getShoutsHeardBy('Lucy').get('Sean').length, shouts)
+});
