@@ -22,3 +22,8 @@ Feature: Hear Shout
     And Oscar shouts
     Then Lucy should not hear Oscar
     But Lucy should hear Sean
+
+  Rule: Shouters should not hear their own shouts
+    Scenario: Shouter does not hear himself
+      When Lucy shouts
+      Then Lucy should not hear Lucy
